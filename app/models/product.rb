@@ -3,12 +3,17 @@ class Product < ApplicationRecord
 
   has_many :images, as: :imageable, dependent: :destroy
 
-  has_many :suggests, dependent: :destroy
-  has_many :user_suggests, through: :suggests, source: :user
-
   has_many :rates, dependent: :destroy
   has_many :user_rates, through: :rates, source: :user
 
   has_many :order_details, dependent: :destroy
   has_many :orders, through: :order_details, source: :order
+
+  validates :name, presence: true
+  validates :information, presence: true
+  validates :price, presence: true,
+            numericality: {greater_than: Settings.validation.number.greater}
+  validates :quantity, presence: true,
+            numericality: {only_integer: true,
+                           greater_than: Settings.validation.number.greater}
 end
