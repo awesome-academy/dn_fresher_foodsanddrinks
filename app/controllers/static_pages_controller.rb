@@ -1,3 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @products = Product.alphabet_name.page(params[:page]).per(Settings.page.per_8)
+  end
 end

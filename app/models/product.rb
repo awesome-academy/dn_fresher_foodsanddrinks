@@ -16,4 +16,6 @@ class Product < ApplicationRecord
   validates :quantity, presence: true,
             numericality: {only_integer: true,
                            greater_than: Settings.validation.number.greater}
+
+  scope :alphabet_name, ->{order name: :asc}
 end
