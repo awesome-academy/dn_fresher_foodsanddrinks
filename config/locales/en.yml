@@ -1,1 +1,17 @@
 en:
+  base:
+    title: "MC-SHOP: Foods, Drinks and More."
+  home:
+    name: "Home page"
+  header:
+    blog: "Blog"
+    contact: "Contact"
+    categories: "Categories"
+    language: "Language"
+    cart: "Cart"
+    account: "Account"
+    english: "English"
+    vietnamese: "Vietnamese"
+  footer:
+    subscribe: "Subscribe"
+    content: "© 2020 - Project 1 - Sun Asterisk"

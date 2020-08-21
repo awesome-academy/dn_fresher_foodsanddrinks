@@ -1,1 +1,17 @@
 vi:
+  base:
+    title: "MC-SHOP: Thức ăn, đồ uống và hơn thế nữa."
+  home:
+    name: "Trang chủ"
+  header:
+    blog: "Blog"
+    contact: "Liên hệ"
+    categories: "Danh mục"
+    language: "Ngôn ngữ"
+    cart: "Giỏ hàng"
+    account: "Tài khoản"
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+  footer:
+    subscribe: "Đăng ký"
+    content: "© 2020 - Dự án 1 - Sun Asterisk"

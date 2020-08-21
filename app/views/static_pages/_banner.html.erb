@@ -1,0 +1,23 @@
+<div id = "myCarousel" class = "carousel slide" data-interval="1000" data-ride="carousel" >
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class = "item-active">
+      <%= image_tag("banner.jpg", alt: :banner, class: "img-responsive") %>
+    </div>
+    <div class = "item">
+      <%= image_tag("banner.jpg", alt: :banner, class: "img-responsive") %>
+    </div>
+  </div>
+
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+    <span class = "icon-prev"></span>
+  </a>
+
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">
+    <span class = "icon-next"></span>
+  </a>
+</div>
