@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_094820) do
+ActiveRecord::Schema.define(version: 2020_08_23_092034) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_094820) do
     t.float "rating_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -72,10 +74,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_094820) do
     t.text "information"
     t.integer "status", default: 0, null: false
     t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_suggests_on_product_id"
     t.index ["user_id"], name: "index_suggests_on_user_id"
   end
 
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_094820) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "rates", "products"
   add_foreign_key "rates", "users"
-  add_foreign_key "suggests", "products"
   add_foreign_key "suggests", "users"
 end

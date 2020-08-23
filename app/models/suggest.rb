@@ -1,6 +1,5 @@
 class Suggest < ApplicationRecord
   belongs_to :user
-  belongs_to :product
 
   validates :name, presence: true
   validates :information, presence: true

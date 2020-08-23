@@ -1,4 +1,23 @@
 vi:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Có các lỗi sau: %{errors}"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: "phải được đồng ý"
+      blank: "không thể để trắng"
+      confirmation: "không khớp với xác nhận %{attribute}"
+      greater_than: "phải lớn hơn %{count}"
+      invalid: "không hợp lệ"
+      not_a_number: "không phải là số"
+      not_an_integer: "phải là một số nguyên"
+      too_long: "quá dài (tối đa %{count} ký tự)"
+      too_short: "quá ngắn (tối thiểu %{count} ký tự)"
+      wrong_length: "độ dài không đúng (phải là %{count} ký tự)"
+      required: "phải có"
+      taken: "đã tồn tại"
   base:
     title: "MC-SHOP: Thức ăn, đồ uống và hơn thế nữa."
   home:
