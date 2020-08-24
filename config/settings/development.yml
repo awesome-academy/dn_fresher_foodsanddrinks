@@ -6,3 +6,5 @@ validation:
   number:
     greater: 0
     less: 6
+page:
+  per_8: 8

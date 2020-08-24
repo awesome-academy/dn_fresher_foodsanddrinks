@@ -18,10 +18,19 @@ vi:
       wrong_length: "độ dài không đúng (phải là %{count} ký tự)"
       required: "phải có"
       taken: "đã tồn tại"
+  views:
+    pagination:
+      first: "« ĐẦU TIÊN"
+      last: "CUỐI CÙNG »"
+      previous: "‹ TRƯỚC"
+      next: "TIẾP ›"
+      truncate: "…"
   base:
     title: "MC-SHOP: Thức ăn, đồ uống và hơn thế nữa."
   home:
     name: "Trang chủ"
+    products_nil: "Không có sản phẩm nào để hiển thị"
+    products: "Danh sách sản phẩm"
   header:
     blog: "Blog"
     contact: "Liên hệ"

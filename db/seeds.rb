@@ -38,6 +38,14 @@ categories.each do |category|
   end
 end
 
+# Images
+products = Product.all
+products.each do |product|
+  product.images.create!(
+    image_url: "food.jpg"
+    )
+end
+
 # Orders
 12.times do |n|
   Order.create!(
