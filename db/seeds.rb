@@ -46,6 +46,12 @@ products.each do |product|
     )
 end
 
+users = User.all
+users.each do |user|
+  user.images.create!(
+    image_url: "user.png"
+    )
+end
 # Orders
 12.times do |n|
   Order.create!(

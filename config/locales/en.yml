@@ -27,6 +27,8 @@ en:
       truncate: "…"
   base:
     title: "MC-SHOP: Foods, Drinks and More."
+    information: "Information"
+    contact: "Contact"
   home:
     name: "Home page"
     products_nil: "There's no product to be displayed"
@@ -43,4 +45,22 @@ en:
   footer:
     subscribe: "Subscribe"
     content: "© 2020 - Project 1 - Sun Asterisk"
-
+  user:
+    login: "Login"
+    logout: "Log out"
+    signup: "Sign up"
+    name: "Name"
+    email: "Email"
+    pass: "Password"
+    verify: "Confirmation"
+    button: "Sign up now !"
+    newu: "New user? "
+    profile: "Profile"
+    settings: "Settings"
+    fail: "Email/password not valid!"
+    notfound: "Not found this user"
+    basic: "Basic information"
+    address: "Address"
+    role: "Role"
+    my_contacts: "My contacts"
+    phone: "Phone"

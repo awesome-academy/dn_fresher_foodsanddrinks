@@ -5,18 +5,19 @@
   <% provide(:base_title, t("base.title")) %>
 </head>
 <body>
-  <div class="container text-center">
+  <div class="container">
     <div class="row">
       <%= render "static_pages/banner" %>
       <hr>
-      <h2><%= t("home.products") %></h2>
+      <h2 class="text-center"><%= t("home.products") %></h2>
       <hr>
-      <%= render @products || t("home.products_nil") %>
+      <div id="products">
+        <%= render @products || t("home.products_nil") %>
+      </div>
     </div>
-    <div class="row" id="paginator">
+    <div class="row text-center" id="paginator">
       <%= paginate @products, theme: "twitter-bootstrap-3", remote: true %>
     </div>
   </div>
-  <hr>
 </body>
 </html>
