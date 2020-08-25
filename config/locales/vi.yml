@@ -27,6 +27,8 @@ vi:
       truncate: "…"
   base:
     title: "MC-SHOP: Thức ăn, đồ uống và hơn thế nữa."
+    information: "Thông tin"
+    contact: "Liên hệ"
   home:
     name: "Trang chủ"
     products_nil: "Không có sản phẩm nào để hiển thị"
@@ -43,3 +45,23 @@ vi:
   footer:
     subscribe: "Đăng ký"
     content: "© 2020 - Dự án 1 - Sun Asterisk"
+  user:
+    login: "Đăng nhập"
+    logout: "Đăng xuất"
+    signup: "Đăng ký"
+    name: "Tên"
+    email: "Email"
+    pass: "Mật khẩu"
+    verify: "Xác nhận mật khẩu"
+    button: "Đăng ký ngay !"
+    newu: "Người dùng mới? "
+    profile: "Hồ sơ"
+    settings: "Cài đặt"
+    fail: "Email/mật khẩu không hợp lệ!"
+    notfound: "Không tìm thấy người dùng!"
+    basic: "Thông tin cơ bản"
+    address: "Địa chỉ"
+    role: "Vai trò"
+    my_contacts: "Liên hệ của tôi"
+    phone: "Số điện thoại"
+
