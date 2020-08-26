@@ -47,6 +47,7 @@ vi:
     products_nil: "Không có sản phẩm nào để hiển thị"
     products: "Danh sách sản phẩm"
     cart: "CART"
+    view: "VIEW"
   header:
     blog: "Blog"
     contact: "Liên hệ"
@@ -93,6 +94,13 @@ vi:
     remove: "Xóa"
     verify: "Bạn muốn xóa sản phẩm này khỏi giỏ hàng ?"
     content: "%{quantity} sản phẩm"
+    add: "Thêm vào giỏ hàng"
+    name: "Giỏ hàng"
+  product:
+    name: "%{product}"
+    detail: "CHI TIẾT SẢN PHẨM"
+    bio: "Mô tả sản phẩm"
+    detail_info: "Chi tiết"
   controllers:
     carts:
       product_nil: "Không tìm thấy sản phẩm này."

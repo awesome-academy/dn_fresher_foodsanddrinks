@@ -47,6 +47,7 @@ en:
     products_nil: "There's no product to be displayed"
     products: "PRODUCTS"
     cart: "CART"
+    view: "VIEW"
   header:
     blog: "Blog"
     contact: "Contact"
@@ -93,6 +94,13 @@ en:
     remove: "Remove"
     verify: "Do you want remove this product?"
     content: "%{quantity} product"
+    add: "Add to cart"
+    name: "Cart"
+  product:
+    name: "%{product}"
+    detail: "PRODUCT DETAIL"
+    bio: "Description product"
+    detail_info: "Detail"
   controllers:
     carts:
       product_nil: "Not found this product."
