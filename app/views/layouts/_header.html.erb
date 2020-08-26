@@ -33,12 +33,11 @@
           </ul>
         </li>
 
-        <li>
-          <%= link_to "#" do %>
-            <span class="glyphicon glyphicon-shopping-cart"></span> <%= t("header.cart") %>
-          <% end %>
-        </li>
-
+          <li>
+            <%= link_to carts_path do %>
+              <span class="glyphicon glyphicon-shopping-cart"></span> <%= t("header.cart") %>
+            <% end %>
+          </li>
         <% if logged_in? %>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">

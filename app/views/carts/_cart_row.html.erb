@@ -1,0 +1,39 @@
+<tr class="font-size" >
+  <div class="media">
+    <td class="col-md-1">
+      <%= image_tag(od.product.images.first.image_url, alt: :product, class: "media-object img-cart") %>
+    </td>
+    <td class="col-md-5">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to od.product.name, "#" %>
+        </h4>
+        <h5 class="media-heading">
+          <%= link_to od.product.category.name, "#" %>
+        </h5>
+        <span><%= t "cart.in_stock" %></span>
+        <span class="text-warning">
+          <strong><%= t("cart.content", quantity: od.product.quantity) %></strong>
+        </span>
+      </div>
+    </td>
+  </div>
+
+  <td class="col-md-2" style="text-align: center">
+    <strong><%= od.quantity.to_i %></strong>
+  </td>
+  <td class="col-md-1 text-center">
+    <strong><%= number_to_currency od.current_price %></strong>
+  </td>
+  <td class="col-md-1 text-center">
+    <strong>
+      <%= number_to_currency (subtotal od.current_price, od.quantity) %>
+    </strong>
+  </td>
+  <td class="col-md-2 text-center">
+    <%= link_to carts_path(id: od.product.id), {data: {confirm: t("cart.verify")}, class: "btn btn-danger", method: :delete} do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    <strong><%= t("cart.remove") %></strong>
+    <% end %>
+  </td>
+</tr>

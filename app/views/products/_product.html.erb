@@ -15,8 +15,15 @@
         </div>
         <ul class="social">
             <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-            <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+            <li>
+              <%= form_tag(carts_path, method: :post) do  %>
+                <%= hidden_field_tag(:product_id, product.id) %>
+                <%= hidden_field_tag(:quantity, 1) %>
+                <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+                  <i class="fa fa-shopping-cart"> <%= t "home.cart" %></i>
+                <% end %>
+              <% end %>
+            </li>
         </ul>
     </div>
 </div>

@@ -13,6 +13,24 @@ module SessionsHelper
 
   def log_out
     session.delete :user_id
+    session.delete :cart
     @current_user = nil
+  end
+
+  def current_cart
+    session[:cart] ||= Hash.new
+  end
+
+  def subtotal price, quantity
+    price * quantity
+  end
+
+  def redirect_back_or default
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end
