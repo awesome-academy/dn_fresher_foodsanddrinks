@@ -18,6 +18,18 @@ vi:
       wrong_length: "độ dài không đúng (phải là %{count} ký tự)"
       required: "phải có"
       taken: "đã tồn tại"
+      product_nil: "không phải là một sản phẩm hợp lệ."
+      order_nil: "không phải là một đơn đặt hàng hợp lệ."
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
   views:
     pagination:
       first: "« ĐẦU TIÊN"
@@ -29,10 +41,12 @@ vi:
     title: "MC-SHOP: Thức ăn, đồ uống và hơn thế nữa."
     information: "Thông tin"
     contact: "Liên hệ"
+    error: "lỗi"
   home:
     name: "Trang chủ"
     products_nil: "Không có sản phẩm nào để hiển thị"
     products: "Danh sách sản phẩm"
+    cart: "CART"
   header:
     blog: "Blog"
     contact: "Liên hệ"
@@ -64,4 +78,30 @@ vi:
     role: "Vai trò"
     my_contacts: "Liên hệ của tôi"
     phone: "Số điện thoại"
+  cart:
+    order_details_nil: "Không có đơn hàng nào để hiển thị"
+    product: "Sản phẩm"
+    quantity: "Số lượng"
+    price: "Giá"
+    subtotal: "Tổng"
+    total: "TỔNG CỘNG"
+    action: "Thao tác"
+    continue: "Tiếp tục mua sắm"
+    checkout: "Thanh toán"
+    image: "Hình ảnh"
+    in_stock: "Trong kho còn"
+    remove: "Xóa"
+    verify: "Bạn muốn xóa sản phẩm này khỏi giỏ hàng ?"
+    content: "%{quantity} sản phẩm"
+  controllers:
+    carts:
+      product_nil: "Không tìm thấy sản phẩm này."
+      quantity_error: "Số lượng lỗi"
+      add_success: "Thêm vào giỏ hàng thành công."
+      delete_success: "Xóa thành công"
+
+
+
+
+
 

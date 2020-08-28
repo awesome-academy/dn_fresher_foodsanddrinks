@@ -18,6 +18,18 @@ en:
       wrong_length: "is the wrong length (should be %{count} characters)"
       required: "must exist"
       taken: "has already been taken"
+      product_nil: "is not a valid product."
+      order_nil: "is not a valid order."
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
   views:
     pagination:
       first: "« FIRST"
@@ -29,10 +41,12 @@ en:
     title: "MC-SHOP: Foods, Drinks and More."
     information: "Information"
     contact: "Contact"
+    error: "error"
   home:
     name: "Home page"
     products_nil: "There's no product to be displayed"
     products: "PRODUCTS"
+    cart: "CART"
   header:
     blog: "Blog"
     contact: "Contact"
@@ -64,3 +78,26 @@ en:
     role: "Role"
     my_contacts: "My contacts"
     phone: "Phone"
+  cart:
+    order_details_nil: "There's no order detail to be displayed"
+    product: "Product"
+    quantity: "Quantity"
+    price: "Price"
+    subtotal: "Subtotal"
+    total: "Total"
+    action: "Action"
+    continue: "Continue Shopping"
+    checkout: "Checkout"
+    image: "Image"
+    in_stock: "In stock"
+    remove: "Remove"
+    verify: "Do you want remove this product?"
+    content: "%{quantity} product"
+  controllers:
+    carts:
+      product_nil: "Not found this product."
+      quantity_error: "Quantity error"
+      add_success: "Add to cart success."
+      delete_success: "Delete success"
+
+
