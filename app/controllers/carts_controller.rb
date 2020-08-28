@@ -28,7 +28,7 @@ class CartsController < ApplicationController
   def destroy
     cart = current_cart
     cart.reject!{|key| key.to_i == params[:id].to_i}
-     flash[:success] = t "controllers.carts.delete_success"
+    flash[:success] = t "controllers.carts.delete_success"
     session[:cart] = cart
     redirect_to carts_path
   end

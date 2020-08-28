@@ -17,5 +17,7 @@ class Product < ApplicationRecord
             numericality: {only_integer: true,
                            greater_than: Settings.validation.number.greater}
 
+  delegate :name, to: :category, prefix: true
+
   scope :alphabet_name, ->{order name: :asc}
 end

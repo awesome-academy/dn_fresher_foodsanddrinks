@@ -11,6 +11,8 @@ class OrderDetail < ApplicationRecord
   validate :product_present
   validate :order_present
 
+  delegate :name, to: :product, prefix: true
+
   before_save :finalize
 
   private
@@ -22,7 +24,7 @@ class OrderDetail < ApplicationRecord
   end
 
   def order_present
-    return order
+    return if order
 
     errors.add(:order, :order_nil)
   end
