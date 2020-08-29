@@ -1,13 +1,13 @@
 <div class="col-md-3 col-sm-6">
   <div class="product-grid">
     <div class="product-image">
-      <a href="#">
+      <%= link_to product do %>
         <% if product.images.present? %>
           <%= image_tag(product.images.first.image_url, alt: :food, class: "pic-1") %>
         <% else %>
           <%= image_tag("default.jpg", alt: :default) %>
         <% end %>
-      </a>
+      <% end %>
     </div>
     <div class="product-content">
       <h3 class="title"><a href="#"><%= product.name %></a></h3>

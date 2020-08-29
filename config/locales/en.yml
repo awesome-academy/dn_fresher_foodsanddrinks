@@ -96,6 +96,7 @@ en:
     content: "%{quantity} product"
     add: "Add to cart"
     name: "Cart"
+    update: "Do you want update quantity of this product?"
   product:
     name: "%{product}"
     detail: "PRODUCT DETAIL"
@@ -104,8 +105,9 @@ en:
   controllers:
     carts:
       product_nil: "Not found this product."
-      quantity_error: "Quantity error"
       add_success: "Add to cart success."
       delete_success: "Delete success"
-
+      quantity_error_full: "Quantity error. %{name} has %{quantity} products in stock."
+      quantity_error: "Number must be a positive number"
+      update_success: "Update cart successfully"
 

@@ -96,6 +96,7 @@ vi:
     content: "%{quantity} sản phẩm"
     add: "Thêm vào giỏ hàng"
     name: "Giỏ hàng"
+    update: "Bạn muốn cập nhật số lượng sản phẩm này?"
   product:
     name: "%{product}"
     detail: "CHI TIẾT SẢN PHẨM"
@@ -104,12 +105,9 @@ vi:
   controllers:
     carts:
       product_nil: "Không tìm thấy sản phẩm này."
-      quantity_error: "Số lượng lỗi"
       add_success: "Thêm vào giỏ hàng thành công."
       delete_success: "Xóa thành công"
-
-
-
-
-
+      quantity_error_full: "Số lượng lỗi. %{name} chỉ có %{quantity} sản phẩm ở trong kho."
+      quantity_error: "Số lượng phải là một số dương"
+      update_success: "Cập nhật giỏ hàng thành công"
 

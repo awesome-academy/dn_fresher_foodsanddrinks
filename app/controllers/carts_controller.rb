@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
-  before_action :load_product, :check_quantity, only: %i(create)
+  before_action :load_product, only: %i(create update)
+  before_action :check_quantity_create, only: %i(create)
+  before_action :check_quantity_update, only: %i(update)
 
   def show
     cart = current_cart
@@ -15,7 +17,7 @@ class CartsController < ApplicationController
 
   def create
     cart = current_cart
-    if cart.key?(params[:product_id])
+    if cart[params[:product_id]]
       cart[params[:product_id]] += params[:quantity].to_i
     else
       cart.store(params[:product_id].to_i, params[:quantity].to_i)
@@ -25,9 +27,17 @@ class CartsController < ApplicationController
     redirect_to carts_path
   end
 
+  def update
+    cart = current_cart
+    cart[params[:product_id]] = params[:quantity].to_i
+    session[:cart] = cart
+    flash[:success] = t "controllers.carts.update_success"
+    redirect_to carts_path
+  end
+
   def destroy
     cart = current_cart
-    cart.reject!{|key| key.to_i == params[:id].to_i}
+    cart.reject!{|key| key.to_i == params[:product_id].to_i}
     flash[:success] = t "controllers.carts.delete_success"
     session[:cart] = cart
     redirect_to carts_path
@@ -47,11 +57,30 @@ class CartsController < ApplicationController
     redirect_to carts_path
   end
 
-  def check_quantity
-    return if params[:quantity].to_i <= @product.quantity &&
-              params[:quantity].to_i.positive?
+  def check_quantity_create
+    if params[:quantity].to_i.positive?
+      cart = current_cart
+      return unless cart[params[:product_id]]
 
-    flash[:danger] = t "controllers.carts.quantity_error"
+      quantity_temp = cart[params[:product_id]] + params[:quantity].to_i
+      return if quantity_temp <= @product.quantity
+
+      flash[:danger] = t("controllers.carts.quantity_error_full",
+                         name: @product.name,
+                         quantity: @product.quantity)
+    else
+      flash[:danger] = t "controllers.carts.quantity_error"
+    end
     redirect_to root_path
+  end
+
+  def check_quantity_update
+    quantity = params[:quantity].to_i
+    return if quantity.positive? && quantity <= @product.quantity
+
+    flash[:danger] = t("controllers.carts.quantity_error_full",
+                       name: @product.name,
+                       quantity: @product.quantity)
+    redirect_to carts_path
   end
 end
