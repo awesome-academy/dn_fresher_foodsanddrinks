@@ -6,34 +6,41 @@
     <td class="col-md-5">
       <div class="media-body">
         <h4 class="media-heading">
-          <%= link_to od.product_name, "#" %>
+          <%= link_to od.product_name, od.product %>
         </h4>
         <h5 class="media-heading">
           <%= link_to od.product.category_name, "#" %>
         </h5>
         <span><%= t "cart.in_stock" %></span>
         <span class="text-warning">
-          <strong><%= t("cart.content", quantity: od.product.quantity) %></strong>
+          <strong><%= t("cart.content", quantity: od.product_quantity) %></strong>
         </span>
       </div>
     </td>
   </div>
 
-  <td class="col-md-2" style="text-align: center">
-    <strong><%= od.quantity.to_i %></strong>
+  <td class="col-md-2 form-inline">
+    <%= form_tag(carts_path, method: :patch) do %>
+      <%= number_field_tag(:quantity, od.quantity.to_i, min: 1, max: od.product_quantity, class: "form-control") %>
+      <%= hidden_field_tag(:product_id, od.product.id) %>
+      <%= button_tag(type: "submit", data: {confirm: t("cart.update")}, class: "btn btn-success save") do %>
+        <i class="fa fa-floppy-o fa-lg"></i>
+      <% end %>
+    <% end %>
   </td>
+
   <td class="col-md-1 text-center">
     <strong><%= number_to_currency od.current_price %></strong>
   </td>
+
   <td class="col-md-1 text-center">
     <strong>
       <%= number_to_currency (subtotal od.current_price, od.quantity) %>
     </strong>
   </td>
   <td class="col-md-2 text-center">
-    <%= link_to carts_path(id: od.product.id), {data: {confirm: t("cart.verify")}, class: "btn btn-danger", method: :delete} do %>
-    <span class="glyphicon glyphicon-remove"></span>
-    <strong><%= t("cart.remove") %></strong>
+    <%= link_to carts_path(product_id: od.product.id), {data: {confirm: t("cart.verify")}, class: "btn btn-danger", method: :delete} do %>
+    <i class="fa fa-trash fa-lg"></i>
     <% end %>
   </td>
 </tr>
