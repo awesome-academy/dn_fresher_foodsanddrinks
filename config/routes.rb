@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: %i(show)
     resource :carts, except: %i(new edit)
     resources :products, only: %i(show)
+
+    resources :orders, only: %i(show new create)
   end
 end

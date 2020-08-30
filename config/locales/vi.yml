@@ -1,4 +1,7 @@
 vi:
+  time:
+    formats:
+      short: "%d %b %Y"
   activerecord:
     errors:
       messages:
@@ -89,6 +92,7 @@ vi:
     action: "Thao tác"
     continue: "Tiếp tục mua sắm"
     checkout: "Thanh toán"
+    confirm: "Xác nhận"
     image: "Hình ảnh"
     in_stock: "Trong kho còn"
     remove: "Xóa"
@@ -97,6 +101,16 @@ vi:
     add: "Thêm vào giỏ hàng"
     name: "Giỏ hàng"
     update: "Bạn muốn cập nhật số lượng sản phẩm này?"
+    name_detail: "CHI TIẾT GIỎ HÀNG"
+    no_order: "Giỏ hàng trống. Quay lại trang mua sắm?"
+  order:
+    name: "Xác nhận đơn hàng"
+    your_order: "ĐƠN HÀNG CỦA BẠN"
+    id: "Mã đơn hàng"
+    total: "Giá trị đơn hàng"
+    date: "Ngày đặt hàng"
+    status: "Trạng thái đơn hàng"
+    content: "Cám ơn bạn đã lựa chọn mua sắm tại MC - Shop. Bạn còn một bước nữa để xác nhận đơn hàng này. Vui lòng kiểm tra địa chỉ mail mà bạn đã đăng ký."
   product:
     name: "%{product}"
     detail: "CHI TIẾT SẢN PHẨM"
@@ -110,4 +124,10 @@ vi:
       quantity_error_full: "Số lượng lỗi. %{name} chỉ có %{quantity} sản phẩm ở trong kho."
       quantity_error: "Số lượng phải là một số dương"
       update_success: "Cập nhật giỏ hàng thành công"
+    orders:
+      verify_login: "Bạn cần đăng nhập để tiếp tục."
+      save_success: "Khởi tạo đơn hàng thành công"
+      save_fail: "Khởi tạo đơn hàng thất bại"
+      not_found: "Không tìm thấy đơn hàng"
+      blank: "Đơn hàng này đã được xác nhận. Quay lại trang mua sắm."
 

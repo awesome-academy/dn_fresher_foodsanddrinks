@@ -1,19 +1,10 @@
 class CartsController < ApplicationController
   before_action :load_product, only: %i(create update)
+  before_action :check_quantity_number, only: %i(create update)
   before_action :check_quantity_create, only: %i(create)
-  before_action :check_quantity_update, only: %i(update)
+  before_action :load_order_details_from_cart, only: %i(show)
 
-  def show
-    cart = current_cart
-    @total = 0
-    @order_details = []
-    cart.each do |key, value|
-      @product = Product.find_by id: key
-      @order_details << OrderDetail.new(product: @product, quantity: value,
-        current_price: @product.price)
-      @total += @product.price * value
-    end
-  end
+  def show; end
 
   def create
     cart = current_cart
@@ -74,13 +65,13 @@ class CartsController < ApplicationController
     redirect_to root_path
   end
 
-  def check_quantity_update
+  def check_quantity_number
     quantity = params[:quantity].to_i
     return if quantity.positive? && quantity <= @product.quantity
 
     flash[:danger] = t("controllers.carts.quantity_error_full",
                        name: @product.name,
                        quantity: @product.quantity)
-    redirect_to carts_path
+    redirect_to root_path
   end
 end
