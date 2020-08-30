@@ -11,6 +11,10 @@ module SessionsHelper
     current_user.present?
   end
 
+  def current_user? user
+    user == current_user
+  end
+
   def current_cart
     session[:cart] ||= Hash.new
   end

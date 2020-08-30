@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :logged_in_user
   before_action :load_order_from_cart, except: %i(show)
   before_action :find_order, only: %i(show)
+  before_action :load_user, only: %i(create)
 
   def show; end
 
@@ -10,6 +11,7 @@ class OrdersController < ApplicationController
   def create
     ActiveRecord::Base.transaction do
       @order.save!
+      OrderMailer.order_confirm(@order, @user).deliver_now
       flash[:success] = t "controllers.orders.save_success"
       session.delete :cart
       redirect_to order_path(@order)
@@ -57,5 +59,12 @@ class OrdersController < ApplicationController
 
     flash[:danger] = t "controllers.orders.not_found"
     redirect_to root_path
+  end
+
+  def load_user
+    @user = User.find_by email: params[:email]
+    return if current_user? @user
+
+    @user = User.new(order_params)
   end
 end

@@ -130,4 +130,16 @@ vi:
       save_fail: "Khởi tạo đơn hàng thất bại"
       not_found: "Không tìm thấy đơn hàng"
       blank: "Đơn hàng này đã được xác nhận. Quay lại trang mua sắm."
+    order_confirms:
+      success: "Đơn hàng của bạn đã được xác nhận."
+      fail: "Xác nhận đơn hàng thất bại."
+      expired: "Liên kết đã hết hạn."
+      not_found: "Không tìm thấy đơn hàng."
+  mailer:
+    order_infor: "MC SHOP - THÔNG TIN ĐƠN HÀNG"
+    thanks: "Cám ơn vì đã mua sắm tại MC-Shop !!!"
+    click: "Vui lòng click vào liên kết để xác nhận đơn hàng."
+    user_name: "Xin chào %{name}."
+    date: "Ngày đặt hàng : %{date}"
+    status: "Trạng thái đơn hàng: %{status}"
 

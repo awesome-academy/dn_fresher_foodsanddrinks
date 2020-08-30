@@ -8,3 +8,5 @@ validation:
     less: 6
 page:
   per_8: 8
+mail:
+  expired: 2
