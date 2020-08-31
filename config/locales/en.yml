@@ -1,4 +1,7 @@
 en:
+  time:
+    formats:
+      short: "%d %b %Y"
   activerecord:
     errors:
       messages:
@@ -89,6 +92,7 @@ en:
     action: "Action"
     continue: "Continue Shopping"
     checkout: "Checkout"
+    confirm: "Confirm"
     image: "Image"
     in_stock: "In stock"
     remove: "Remove"
@@ -97,6 +101,16 @@ en:
     add: "Add to cart"
     name: "Cart"
     update: "Do you want update quantity of this product?"
+    name_detail: "CART DETAIL"
+    no_order: "The shopping cart is empty. Back to the shopping page?"
+  order:
+    name: "Confirm order"
+    your_order: "YOUR ORDER"
+    id: "Order Id"
+    total: "Order total"
+    date: "Order date"
+    status: "Status order"
+    content: "Cám ơn bạn đã lựa chọn mua sắm tại MC - Shop. Bạn còn một bước nữa để xác nhận đơn hàng này. Vui lòng kiểm tra địa chỉ mail mà bạn đã đăng ký."
   product:
     name: "%{product}"
     detail: "PRODUCT DETAIL"
@@ -110,4 +124,9 @@ en:
       quantity_error_full: "Quantity error. %{name} has %{quantity} products in stock."
       quantity_error: "Number must be a positive number"
       update_success: "Update cart successfully"
-
+    orders:
+      verify_login: "You need to log in to continue."
+      save_success: "Save order successfully"
+      save_fail: "Save order failed"
+      not_found: "Not found order"
+      blank: "This row has been verify. Back to the shopping page."

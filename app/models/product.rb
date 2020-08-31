@@ -14,8 +14,8 @@ class Product < ApplicationRecord
   validates :price, presence: true,
             numericality: {greater_than: Settings.validation.number.greater}
   validates :quantity, presence: true,
-            numericality: {only_integer: true,
-                           greater_than: Settings.validation.number.greater}
+    numericality: {only_integer: true,
+                   greater_than_or_equal_to: Settings.validation.number.greater}
 
   delegate :name, to: :category, prefix: true
 
