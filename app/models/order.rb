@@ -3,9 +3,11 @@ class Order < ApplicationRecord
 
   has_many :order_details, dependent: :destroy
   has_many :products, through: :order_details
-  enum status: {waiting: 0, confirmed: 1, refuse: 2}
 
-  after_save :update_quantity_product, :save_order_details
+  enum status: {waiting: 0, confirmed: 1, refuse: 2, cancel: 4}
+
+  after_create :update_quantity_product, :save_order_details
+
   before_create :set_total
 
   def total_price
@@ -22,9 +24,8 @@ class Order < ApplicationRecord
 
   def update_quantity_product
     order_details.map do |od|
-      @quantity = od.quantity
       @product = od.product
-      @product.update(quantity: (@product.quantity - @quantity))
+      @product.update(quantity: (od.product_quantity - od.quantity))
     end
   end
 
