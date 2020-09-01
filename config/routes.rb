@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :products, only: %i(show)
 
     resources :orders, only: %i(show new create)
+    resources :order_confirms, only: %i(edit)
   end
 end

@@ -130,3 +130,15 @@ en:
       save_fail: "Save order failed"
       not_found: "Not found order"
       blank: "This row has been verify. Back to the shopping page."
+    order_confirms:
+      success: "Your order has been confirmed."
+      fail: "Order confirmation failed"
+      expired: "Link has been expired."
+      not_found: "Order not found."
+  mailer:
+    order_infor: "MC SHOP - YOUR ORDER INFOR"
+    thanks: "Thank you for shopping at MC-Shop !!!"
+    click: "Please click on this link to confirm your order."
+    user_name: "Hi %{name}."
+    date: "Order date : %{date}"
+    status: "Status : %{status}"
