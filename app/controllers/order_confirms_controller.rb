@@ -4,8 +4,8 @@ class OrderConfirmsController < ApplicationController
   def edit
     if @order.waiting?
       ActiveRecord::Base.transaction do
-      @order.verify_order
-      flash[:success] = t "controllers.order_confirms.success"
+        @order.verify_order
+        flash[:success] = t "controllers.order_confirms.success"
       end
     else
       flash[:danger] = t "controllers.order_confirms.fail"

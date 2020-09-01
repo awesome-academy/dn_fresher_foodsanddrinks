@@ -120,6 +120,11 @@ vi:
     detail: "CHI TIẾT SẢN PHẨM"
     bio: "Mô tả sản phẩm"
     detail_info: "Chi tiết"
+  search:
+    text: "Tìm kiếm ở đây"
+    name: "Trang tìm kiếm"
+    result: "Kết quả"
+    not_found: "Không có kết quả nào cho %{keyword} "
   admin:
     name: "Administrator"
     dashboard: "Bảng điều khiển"
@@ -156,6 +161,10 @@ vi:
       fail: "Xác nhận đơn hàng thất bại."
       expired: "Liên kết đã hết hạn."
       not_found: "Không tìm thấy đơn hàng."
+    categories:
+      not_found: "Không tìm thấy loại hàng này."
+    searchs:
+      empty: "Từ khóa trống"
   mailer:
     order_infor: "MC SHOP - THÔNG TIN ĐƠN HÀNG"
     thanks: "Cám ơn vì đã mua sắm tại MC-Shop !!!"

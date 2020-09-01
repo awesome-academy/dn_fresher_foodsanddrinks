@@ -1,0 +1,12 @@
+<% provide(:title, @category.name) %>
+<% provide(:base_title, t("base.title")) %>
+<div class="row">
+  <h2 class="text-center"><%= @category.name %></h2>
+  <hr>
+  <div id="products">
+    <%= render (@products) || t("home.products_nil") %>
+  </div>
+</div>
+<div class="row text-center" id="paginator">
+  <%= paginate @products, theme: "twitter-bootstrap-3", remote: true %>
+</div>

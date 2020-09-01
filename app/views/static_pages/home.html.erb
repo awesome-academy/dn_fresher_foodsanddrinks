@@ -12,7 +12,7 @@
       <h2 class="text-center"><%= t("home.products") %></h2>
       <hr>
       <div id="products">
-        <%= render @products || t("home.products_nil") %>
+        <%= render (@products) || t("home.products_nil") %>
       </div>
     </div>
     <div class="row text-center" id="paginator">

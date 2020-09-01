@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody id="order_row">
-    <%= render @orders || t("cart.order_details_nil") %>
+    <%= render (@orders) || t("cart.order_details_nil") %>
   </tbody>
 </table>
 <div class="row text-center" id="paginator">

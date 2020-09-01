@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :load_categories
 
   private
 
@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def load_categories
+    @categories = Category.alphabet_name
   end
 end

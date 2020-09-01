@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    get "/search", to: "searchs#index"
 
     resources :users, only: %i(show)
     resource :carts, except: %i(new edit)
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
 
     resources :orders, except: %i(index edit destroy)
     resources :order_confirms, only: %i(edit)
+
+    resources :categories, only: %i(show)
 
     namespace :admin do
       root "dashboard#index"

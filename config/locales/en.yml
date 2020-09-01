@@ -120,6 +120,11 @@ en:
     detail: "PRODUCT DETAIL"
     bio: "Description product"
     detail_info: "Detail"
+  search:
+    text: "Search here"
+    name: "Search page"
+    result: "Result"
+    not_found: "No result for %{keyword}"
   admin:
     name: "Administrator"
     dashboard: "Dashboard"
@@ -156,6 +161,10 @@ en:
       fail: "Order confirmation failed"
       expired: "Link has been expired."
       not_found: "Order not found."
+    categories:
+      not_found: "Category not found."
+    searchs:
+      empty: "Keyword is empty"
   mailer:
     order_infor: "MC SHOP - YOUR ORDER INFOR"
     thanks: "Thank you for shopping at MC-Shop !!!"
