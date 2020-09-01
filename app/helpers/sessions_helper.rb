@@ -19,6 +19,22 @@ module SessionsHelper
     session[:cart] ||= Hash.new
   end
 
+  def check_logged_in
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t "user.login"
+    redirect_to login_path
+  end
+
+  def check_admin
+    redirect_to root_path unless user_admin?
+  end
+
+  def user_admin?
+    current_user.admin?
+  end
+
   def load_order_details_from_cart
     cart = current_cart
     @total = 0

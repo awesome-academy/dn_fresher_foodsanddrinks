@@ -3,12 +3,17 @@ class OrderConfirmsController < ApplicationController
 
   def edit
     if @order.waiting?
-      @order.confirm
+      ActiveRecord::Base.transaction do
+      @order.verify_order
       flash[:success] = t "controllers.order_confirms.success"
+      end
     else
       flash[:danger] = t "controllers.order_confirms.fail"
       redirect_to root_path
     end
+  rescue Exception
+    flash[:danger] = t "controllers.order_confirms.fail"
+    redirect_to root_path
   end
 
   private

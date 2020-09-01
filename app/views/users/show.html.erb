@@ -18,7 +18,7 @@
       <div class="well">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#infor" data-toggle="tab"><%= t "base.information" %></a></li>
-          <li><a href="#contact" data-toggle="tab"><%= t "base.contact" %></a></li>
+          <li><a href="#contact" data-toggle="tab"><%= t "user.order" %></a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
           <div class="tab-pane active in" id="infor">
@@ -42,23 +42,7 @@
                       <th><strong><%= t"user.role" %></strong></th>
                       <td><%= @user.role %></td>
                     </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-          </div>
-          <div class="tab-pane fade" id="contact">
-            <br>
-            <div id="tab2">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title"><%= t "user.my_contacts" %></h4>
-                </div>
-                <div class="panel-body">
-                  <table class="table profile__table">
-                    <tbody>
-                      <tr>
+                    <tr>
                         <th><strong><%= t "user.email" %></strong></th>
                         <td><%= @user.email %></td>
                       </tr>
@@ -66,8 +50,37 @@
                         <th><strong><%= t "user.phone" %></strong></th>
                         <td><%= @user.phone %></td>
                       </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="contact">
+            <br>
+            <div id="tab2">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><%= t "user.my_orders" %></h4>
+                </div>
+                <div class="panel-body">
+
+                  <table id="orders" class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th><%= t "order.status" %></th>
+                        <th><%= t "order.total" %></th>
+                        <th><%= t "order.date" %></th>
+                        <th><%= t "cart.action" %></th>
+                      </tr>
+                    </thead>
+                    <tbody id="order_row">
+                      <%= render(partial: "order", collection: @orders) || t("cart.order_details_nil") %>
                     </tbody>
                   </table>
+                  <div class="row text-center" id="paginator">
+                    <%= paginate @orders, theme: "twitter-bootstrap-3", remote: true %>
+                  </div>
                 </div>
               </div>
             </div>

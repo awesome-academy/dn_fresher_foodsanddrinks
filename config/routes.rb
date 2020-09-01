@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     resource :carts, except: %i(new edit)
     resources :products, only: %i(show)
 
-    resources :orders, only: %i(show new create)
+    resources :orders, except: %i(index edit destroy)
     resources :order_confirms, only: %i(edit)
+
+    namespace :admin do
+      root "dashboard#index"
+      resources :orders, only: %i(index update)
+    end
   end
 end

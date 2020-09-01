@@ -4,9 +4,13 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_many :products, through: :order_details
 
-  enum status: {waiting: 0, confirmed: 1, refuse: 2, cancel: 4}
+  enum status: {waiting: 0, ordered: 1, confirmed: 2, refused: 3, canceled: 4}
 
-  after_create :update_quantity_product, :save_order_details
+  delegate :name, to: :user, prefix: true
+
+  scope :newest_time, ->{order created_at: :desc}
+
+  after_create :update_quantity_product_minus, :save_order_details
 
   before_create :set_total
 
@@ -20,8 +24,23 @@ class Order < ApplicationRecord
     end
   end
 
-  def confirm
-    update_columns status: Order.statuses[:confirmed]
+  def verify_order
+    ordered!
+  end
+
+  def update_status status
+    if status == Order.statuses[:confirmed]
+      update_quantity_product_minus if refused?
+      confirmed!
+    elsif status == Order.statuses[:refused]
+      refused!
+      update_quantity_product_plus
+    end
+  end
+
+  def cancel
+    canceled!
+    update_quantity_product_plus
   end
 
   def link_confirm_expired?
@@ -30,10 +49,17 @@ class Order < ApplicationRecord
 
   private
 
-  def update_quantity_product
+  def update_quantity_product_minus
     order_details.map do |od|
       @product = od.product
       @product.update(quantity: (od.product_quantity - od.quantity))
+    end
+  end
+
+  def update_quantity_product_plus
+    order_details.map do |od|
+      @product = od.product
+      @product.update(quantity: (od.product_quantity + od.quantity))
     end
   end
 

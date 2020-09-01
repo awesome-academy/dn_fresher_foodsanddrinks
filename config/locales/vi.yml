@@ -82,6 +82,9 @@ vi:
     role: "Vai trò"
     my_contacts: "Liên hệ của tôi"
     phone: "Số điện thoại"
+    my_orders: "Đơn hàng của tôi"
+    order: "Đơn hàng"
+    cancel_order: "Thao tác này không thể vãn hồi. Bạn chắc chắn muốn hủy đơn hàng này?"
   cart:
     order_details_nil: "Không có đơn hàng nào để hiển thị"
     product: "Sản phẩm"
@@ -111,11 +114,26 @@ vi:
     date: "Ngày đặt hàng"
     status: "Trạng thái đơn hàng"
     content: "Cám ơn bạn đã lựa chọn mua sắm tại MC - Shop. Bạn còn một bước nữa để xác nhận đơn hàng này. Vui lòng kiểm tra địa chỉ mail mà bạn đã đăng ký."
+    user_name: "Tên người dùng"
   product:
     name: "%{product}"
     detail: "CHI TIẾT SẢN PHẨM"
     bio: "Mô tả sản phẩm"
     detail_info: "Chi tiết"
+  admin:
+    name: "Administrator"
+    dashboard: "Bảng điều khiển"
+    page: "Trang quản lý"
+    welcome: "Chào mừng đến với trang quản lý"
+    order:
+      name: "Quản lý giỏ hàng"
+      action: "Thao tác"
+      confirm: "Trạng thái đơn hàng : Confirmed"
+      refuse: "Trạng thái đơn hàng : Refuse"
+      update_fail: "Cập nhật trạng thái đơn hàng thất bại"
+      confirm_button: "Xác nhận"
+      refuse_button: "Hủy"
+      status: "Trạng thái đơn hàng : %{status}"
   controllers:
     carts:
       product_nil: "Không tìm thấy sản phẩm này."
@@ -130,6 +148,9 @@ vi:
       save_fail: "Khởi tạo đơn hàng thất bại"
       not_found: "Không tìm thấy đơn hàng"
       blank: "Đơn hàng này đã được xác nhận. Quay lại trang mua sắm."
+      cancel_success: "Hủy đơn hàng thành công."
+      cancel_fail: "Hủy đơn hàng thất bại."
+      status_error: "Lỗi trạng thái đơn hàng."
     order_confirms:
       success: "Đơn hàng của bạn đã được xác nhận."
       fail: "Xác nhận đơn hàng thất bại."
