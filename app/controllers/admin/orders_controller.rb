@@ -8,10 +8,10 @@ class Admin::OrdersController < Admin::BaseController
 
   def update
     status = params[:status].to_i
-    if status == Order.statuses[:confirmed] || status == Order.statuses[:refused]
+    if status
       ActiveRecord::Base.transaction do
-      @order.update_status status
-      flash[:success] = t("admin.order.status", status: @order.status)
+        @order.update_status status
+        flash[:success] = t("admin.order.status", status: @order.status)
       end
     else
       flash[:danger] = t "admin.order.update_fail"

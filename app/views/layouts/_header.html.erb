@@ -1,9 +1,15 @@
 <div class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <%= link_to "MC-SHOP", root_path, id: "logo" %>
-    <div class="collapse navbar-collapse navHeaderCollapse">
       <ul class="nav navbar-nav navbar-right">
-
+        <li class="form-inline">
+          <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag :keyword, @keyword, class: "form-control search", placeholder: t("search.text") %>
+            <%= button_tag(type: "submit", class: "btn btn-dark button btn1") do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        <% end %>
+        </li>
         <li class="active">
           <%= link_to root_path do %>
             <span class="glyphicon glyphicon-home"></span> <%= t("home.name") %>
@@ -11,17 +17,6 @@
         </li>
 
         <li><%= link_to t("header.contact"), "#" %></li>
-        <li><%= link_to t("header.blog"), "#" %></li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= t("header.categories") %><b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to t("header.categories"), "#" %></li>
-            <li><%= link_to t("header.categories"), "#" %></li>
-          </ul>
-        </li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -30,6 +25,17 @@
           <ul class="dropdown-menu">
             <li><%= link_to t("header.english"), locale: :en %></li>
             <li><%= link_to t("header.vietnamese"), locale: :vi %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t("header.categories") %><b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% @categories.each do |category| %>
+              <li><%= link_to category.name, category %></li>
+            <% end %>
           </ul>
         </li>
 

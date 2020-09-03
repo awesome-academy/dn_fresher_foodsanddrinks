@@ -26,8 +26,8 @@ class OrdersController < ApplicationController
     status = params[:status].to_i
     if status == Order.statuses[:canceled]
       ActiveRecord::Base.transaction do
-      @order.cancel
-      flash[:success] = t "controllers.orders.cancel_success"
+        @order.cancel
+        flash[:success] = t "controllers.orders.cancel_success"
       end
     else
       flash[:danger] = t "controllers.orders.status_error"

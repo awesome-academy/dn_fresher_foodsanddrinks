@@ -20,4 +20,5 @@ class Product < ApplicationRecord
   delegate :name, to: :category, prefix: true
 
   scope :alphabet_name, ->{order name: :asc}
+  scope :search_by_name, ->(name){where("name LIKE ?", "%#{name}%")}
 end

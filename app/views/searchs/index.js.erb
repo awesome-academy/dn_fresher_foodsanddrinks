@@ -1,2 +1,2 @@
-$('#products').html('<%= j render(@products) || t("home.products_nil") %>');
+$('#products').html('<%= j render(@products) || t("search.not_found", keyword: @keyword) %>');
 $('#paginator').html('<%= j paginate(@products, theme: "twitter-bootstrap-3", remote: true) %>');
