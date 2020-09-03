@@ -1,26 +1,13 @@
-<div class="navbar navbar-inverse navbar-static-top">
+<div class="navbar navbar-default navbar-static-top">
   <div class="container">
-    <%= link_to "MC-SHOP", root_path, id: "logo" %>
+    <%= link_to t("admin.name"), "#", id: "logo_admin" %>
     <div class="collapse navbar-collapse navHeaderCollapse">
       <ul class="nav navbar-nav navbar-right">
 
-        <li class="active">
+        <li>
           <%= link_to root_path do %>
             <span class="glyphicon glyphicon-home"></span> <%= t("home.name") %>
           <% end %>
-        </li>
-
-        <li><%= link_to t("header.contact"), "#" %></li>
-        <li><%= link_to t("header.blog"), "#" %></li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= t("header.categories") %><b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to t("header.categories"), "#" %></li>
-            <li><%= link_to t("header.categories"), "#" %></li>
-          </ul>
         </li>
 
         <li class="dropdown">
@@ -33,12 +20,6 @@
           </ul>
         </li>
 
-          <li>
-            <%= link_to carts_path do %>
-              <span class="glyphicon glyphicon-shopping-cart"></span> <%= t("header.cart") %>
-            <% end %>
-          </li>
-        <% if logged_in? %>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= t("header.account") %><b class="caret"></b>
@@ -55,13 +36,6 @@
             </li>
           </ul>
         </li>
-        <% else %>
-          <li>
-            <%= link_to login_path do %>
-              <span class="glyphicon glyphicon-user"></span> <%= t("header.account") %>
-            <% end %>
-          </li>
-        <% end %>
       </ul>
     </div>
   </div>

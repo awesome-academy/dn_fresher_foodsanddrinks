@@ -7,6 +7,8 @@ validation:
     greater: 0
     less: 6
 page:
+  per_5: 5
   per_8: 8
+  per_10: 10
 mail:
   expired: 2

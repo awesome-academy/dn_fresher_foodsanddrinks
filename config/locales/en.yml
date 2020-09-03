@@ -82,6 +82,9 @@ en:
     role: "Role"
     my_contacts: "My contacts"
     phone: "Phone"
+    my_orders: "My orders"
+    order: "Order"
+    cancel_order: "This action is irreversible. Are you sure you want to cancel this order?"
   cart:
     order_details_nil: "There's no order detail to be displayed"
     product: "Product"
@@ -110,12 +113,27 @@ en:
     total: "Order total"
     date: "Order date"
     status: "Status order"
-    content: "Cám ơn bạn đã lựa chọn mua sắm tại MC - Shop. Bạn còn một bước nữa để xác nhận đơn hàng này. Vui lòng kiểm tra địa chỉ mail mà bạn đã đăng ký."
+    content: "Thank you for choosing to shop at MC - Shop. You have one more step to confirm this order. Please check your registered email address."
+    user_name: "User name"
   product:
     name: "%{product}"
     detail: "PRODUCT DETAIL"
     bio: "Description product"
     detail_info: "Detail"
+  admin:
+    name: "Administrator"
+    dashboard: "Dashboard"
+    page: "Admin page"
+    welcome: "Welcome to the admin page"
+    order:
+      name: "Order manage"
+      action: "Action"
+      confirm: "Order status : Confirmed"
+      refuse: "Order status : Refuse"
+      update_fail: "Update status failed"
+      confirm_button: "Confirm"
+      refuse_button: "Refuse"
+      status: "Order status : %{status}"
   controllers:
     carts:
       product_nil: "Not found this product."
@@ -130,6 +148,9 @@ en:
       save_fail: "Save order failed"
       not_found: "Not found order"
       blank: "This row has been verify. Back to the shopping page."
+      cancel_success: "Cancel order successfully."
+      cancel_fail: "Cancel order failed."
+      status_error: "Status error"
     order_confirms:
       success: "Your order has been confirmed."
       fail: "Order confirmation failed"

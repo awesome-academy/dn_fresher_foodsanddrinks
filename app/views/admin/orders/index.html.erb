@@ -1,0 +1,20 @@
+<% provide(:title, t("admin.order.name")) %>
+<% provide(:base_title, t("base.title")) %>
+
+<table id="orders" class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t "order.user_name" %></th>
+      <th><%= t "order.status" %></th>
+      <th><%= t "order.total" %></th>
+      <th><%= t "order.date" %></th>
+      <th><%= t "admin.order.action" %></th>
+    </tr>
+  </thead>
+  <tbody id="order_row">
+    <%= render @orders || t("cart.order_details_nil") %>
+  </tbody>
+</table>
+<div class="row text-center" id="paginator">
+  <%= paginate @orders, theme: "twitter-bootstrap-3", remote: true %>
+</div>
