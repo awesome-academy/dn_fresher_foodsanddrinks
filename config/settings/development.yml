@@ -12,3 +12,7 @@ page:
   per_10: 10
 mail:
   expired: 2
+uploaders:
+  image:
+    size: 450
+    accept: "image/jpeg,image/gif,image/png"

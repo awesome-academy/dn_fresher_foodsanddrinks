@@ -1,0 +1,22 @@
+<tr>
+  <td><%= product.id %></td>
+  <td><%= link_to product.name, product, target: "_blank"%></td>
+  <% if product.images.first %>
+    <% image_url = product.images.first.image_url.to_s %>
+  <% else %>
+    <% image_url = "/assets/default.jpg" %>
+  <% end %>
+  <td><%= image_tag image_url, class: "table-img" %></td>
+  <td><%= product.information %></td>
+  <td><%= number_to_currency product.price %></td>
+  <td><%= product.quantity %></td>
+  <td><%= product.category_name %></td>
+  <td>
+    <%= link_to edit_admin_product_path(id: product.id), class: "btn btn-warning" do %>
+      <i class="fa fa-pencil fa-lg" ></i>
+    <% end %>
+    <%= link_to(admin_product_path(id: product.id), class: "btn btn-danger", method: :delete, data: { confirm: t("product.confirm") }) do %>
+      <i class="fa fa-trash fa-lg"></i>
+    <% end %>
+  </td>
+</tr>

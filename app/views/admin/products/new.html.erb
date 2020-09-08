@@ -1,0 +1,10 @@
+<% provide(:title, t("admin.product.name")) %>
+<% provide(:base_title, t("base.title")) %>
+<% provide(:button_text, t("admin.product.new")) %>
+
+<div class="row">
+  <h2 class="text-center"><%= t("admin.product.new") %></h2>
+  <%= form_for @admin_product, url: admin_products_path(@admin_product) do |f| %>
+    <%= render partial: "form", locals: { f: f } %>
+  <% end %>
+</div>

@@ -5,11 +5,8 @@
     <!-- left -->
     <div class="col-sm-4 text-center">
       <h1><%= @user.name %></h1>
-      <% if @user.images.present? %>
-        <%= image_tag(@user.images.first.image_url, alt: :user, class: "avatar img-circle img-thumbnail") %>
-      <% else %>
-        <%= image_tag("default.jpg", alt: :default, class: "avatar img-circle img-thumbnail") %>
-      <% end %>
+      <% image_url = @user.images.first ? @user.images.first.image_url.to_s : "/assets/default.jpg" %>
+      <%= image_tag image_url, alt: :user, class: "avatar img-circle img-thumbnail" %>
       <input type="file" class="text-center center-block well well-sm">
     </div>
     <!-- right -->

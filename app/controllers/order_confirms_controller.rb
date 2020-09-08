@@ -11,7 +11,7 @@ class OrderConfirmsController < ApplicationController
       flash[:danger] = t "controllers.order_confirms.fail"
       redirect_to root_path
     end
-  rescue Exception
+  rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "controllers.order_confirms.fail"
     redirect_to root_path
   end
