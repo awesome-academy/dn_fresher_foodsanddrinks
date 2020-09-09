@@ -1,0 +1,2 @@
+$('#product_row').html('<%= j render (@products) || t("product.list_nil") %>');
+$('#paginator').html('<%= j paginate(@products, theme: "twitter-bootstrap-3", remote: true) %>');

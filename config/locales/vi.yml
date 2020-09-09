@@ -120,6 +120,17 @@ vi:
     detail: "CHI TIẾT SẢN PHẨM"
     bio: "Mô tả sản phẩm"
     detail_info: "Chi tiết"
+    id: "Mã sản phẩm"
+    name1: "Sản phẩm"
+    information: "Thông tin"
+    price: "Giá sản phẩm"
+    quantity: "Số lượng"
+    category: "Loại hàng"
+    created_at: "Ngày tạo"
+    updated_at: "Ngày cập nhật"
+    list_nil: "Danh sách sản phẩm trống"
+    image: "Ảnh sản phẩm"
+    confirm: "Bạn muốn xóa sản phẩm này?"
   search:
     text: "Tìm kiếm ở đây"
     name: "Trang tìm kiếm"
@@ -139,6 +150,19 @@ vi:
       confirm_button: "Xác nhận"
       refuse_button: "Hủy"
       status: "Trạng thái đơn hàng : %{status}"
+    product:
+      name: "Quản lý sản phẩm"
+      new: "Thêm sản phẩm"
+      add_success: "Thêm sản phẩm thành công"
+      edit: "Sửa sản phẩm"
+      edit_success: "Sửa sản phẩm thành công"
+      not_found: "Không tìm thấy sản phẩm"
+      delete_success: "Xóa sản phẩm thành công"
+      delete_fail: "Xóa sản phẩm thất bại"
+      add_fail: "Thêm sản phẩm thất bại"
+      edit_fail: "Sửa sản phẩm thất bại"
+      delete_image: "Xóa ảnh thành công"
+      del_img: "Bạn muốn xóa ảnh này?"
   controllers:
     carts:
       product_nil: "Không tìm thấy sản phẩm này."
@@ -172,4 +196,5 @@ vi:
     user_name: "Xin chào %{name}."
     date: "Ngày đặt hàng : %{date}"
     status: "Trạng thái đơn hàng: %{status}"
+    order_notify: "MC SHOP - TRẠNG THÁI ĐƠN HÀNG MỚI"
 

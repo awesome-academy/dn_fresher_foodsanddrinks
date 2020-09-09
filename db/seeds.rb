@@ -26,7 +26,7 @@ Category.create!(name: "Drinks")
 # Products
 categories = Category.all
 categories.each do |category|
-  30.times do |n|
+  10.times do |n|
     Product.create!(
       category_id: category.id,
       name: category.name + " #{n+1}",
@@ -56,12 +56,9 @@ drink_products.each do |product|
     )
 end
 
-users = User.all
-users.each do |user|
-  user.images.create!(
-    image_url: "user.png"
-    )
-end
+User.first.images.create!(
+  image_url: "user.png"
+)
 # Orders
 12.times do |n|
   Order.create!(

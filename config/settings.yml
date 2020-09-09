@@ -1,0 +1,18 @@
+validation:
+  user:
+    name_max: 50
+    email_max: 255
+    pass_min: 6
+  number:
+    greater: 0
+    less: 6
+page:
+  per_5: 5
+  per_8: 8
+  per_10: 10
+mail:
+  expired: 2
+uploaders:
+  image:
+    size: 450
+    accept: "image/jpeg,image/gif,image/png"
