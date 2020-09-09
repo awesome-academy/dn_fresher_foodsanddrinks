@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   belongs_to :category
 
   has_many :images, as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true,
+    reject_if: proc{|attributes| attributes["image_url"].blank?}
 
   has_many :rates, dependent: :destroy
   has_many :user_rates, through: :rates, source: :user

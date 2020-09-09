@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
       session.delete :cart
       redirect_to order_path(@order)
     end
-  rescue Exception
+  rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "controllers.orders.save_fail"
     render :new
   end
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
       flash[:danger] = t "controllers.orders.status_error"
     end
     redirect_to current_user
-  rescue Exception
+  rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "controllers.orders.cancel_fail"
     redirect_to current_user
   end

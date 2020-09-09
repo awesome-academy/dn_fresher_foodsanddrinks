@@ -7,6 +7,7 @@ gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "3.4.1"
+gem "carrierwave"
 gem "config"
 gem "faker"
 gem "figaro"
@@ -14,6 +15,7 @@ gem "font-awesome-rails"
 gem "jbuilder", "~> 2.7"
 gem "jquery-rails"
 gem "kaminari"
+gem "mini_magick"
 gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 4.1"
 gem "rails", "~> 6.0.3", ">= 6.0.3.2"
@@ -23,7 +25,6 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 
 group :development, :test do
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry", "~> 0.12.2"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false

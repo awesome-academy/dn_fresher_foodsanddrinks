@@ -15,9 +15,11 @@ Rails.application.routes.draw do
     resources :order_confirms, only: %i(edit)
 
     resources :categories, only: %i(show)
+    resources :images, only: %i(destroy)
 
     namespace :admin do
       root "dashboard#index"
+      resources :products, except: %i(show)
       resources :orders, only: %i(index update)
     end
   end

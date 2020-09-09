@@ -1,7 +1,7 @@
 <tr class="font-size" >
   <div class="media">
     <td class="col-md-1">
-      <%= image_tag(od.product.images.first.image_url, alt: :product, class: "media-object img-cart") %>
+      <%= image_tag(od.product.images.first.image_url.to_s, alt: :product, class: "media-object img-cart") %>
     </td>
     <td class="col-md-5">
       <div class="media-body">
@@ -40,7 +40,7 @@
   </td>
   <td class="col-md-2 text-center">
     <%= link_to carts_path(product_id: od.product.id), {data: {confirm: t("cart.verify")}, class: "btn btn-danger", method: :delete} do %>
-    <i class="fa fa-trash fa-lg"></i>
+      <i class="fa fa-trash fa-lg"></i>
     <% end %>
   </td>
 </tr>

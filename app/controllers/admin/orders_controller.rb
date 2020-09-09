@@ -11,13 +11,14 @@ class Admin::OrdersController < Admin::BaseController
     if status
       ActiveRecord::Base.transaction do
         @order.update_status status
+        # OrderMailer.order_notify(@order).deliver_now
         flash[:success] = t("admin.order.status", status: @order.status)
       end
     else
       flash[:danger] = t "admin.order.update_fail"
     end
     redirect_to admin_orders_path
-  rescue Exception
+  rescue ActiveRecord::RecordInvalid
     flash[:danger] = t "admin.order.update_fail"
     redirect_to admin_orders_path
   end

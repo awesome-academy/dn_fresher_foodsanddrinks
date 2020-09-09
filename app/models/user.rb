@@ -2,13 +2,15 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   has_many :images, as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true,
+    reject_if: proc{|attributes| attributes["image_url"].blank?}
+
   has_many :orders, dependent: :destroy
 
   has_many :rates, dependent: :destroy
   has_many :product_rates, through: :rates, source: :product
 
   has_many :suggests, dependent: :destroy
-  has_many :product_suggests, through: :suggests, source: :product
 
   enum role: {member: 0, admin: 1}
 
