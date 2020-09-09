@@ -32,13 +32,14 @@ class Admin::ProductsController < Admin::BaseController
   def edit; end
 
   def update
-    if @admin_product.update! product_params
+    ActiveRecord::Base.transaction do
+      @admin_product.update! product_params
       flash[:success] = t "admin.product.edit_success"
       redirect_to admin_products_path
-    else
-      flash.now[:danger] = t "admin.product.edit_fail"
-      render :edit
     end
+  rescue ActiveRecord::RecordInvalid
+    flash.now[:danger] = t "admin.product.edit_fail"
+    render :edit
   end
 
   def destroy

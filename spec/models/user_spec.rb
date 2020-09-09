@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  let(:user) {FactoryBot.create :user}
+  let(:user) {FactoryBot.create(:user, :member)}
 
   subject {user}
 
