@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :load_order_from_cart, except: %i(show update)
   before_action :find_order, only: %i(show update)
   before_action :load_user, only: %i(create)
@@ -44,14 +44,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit :name, :email, :phone, :address
   end
 
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "controllers.orders.verify_login"
-    redirect_to login_path
-  end
-
   def load_order_from_cart
     cart = current_cart
     if cart.blank?
@@ -79,7 +71,7 @@ class OrdersController < ApplicationController
   end
 
   def load_user
-    @user = User.find_by email: params[:email]
+    @user = User.find_by email: params[:order][:email]
     return if current_user? @user
 
     @user = User.new(order_params)

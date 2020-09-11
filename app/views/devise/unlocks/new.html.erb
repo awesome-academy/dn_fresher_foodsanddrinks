@@ -1,0 +1,17 @@
+<% provide(:title, t("user.unlock")) %>
+<% provide(:base_title, t("base.title")) %>
+
+<h1 class="text-center"><%= t "user.unlock" %></h1>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.label :email, t("user.email") %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+
+    <%= f.submit t("user.unlock"), class: "btn btn-primary" %>
+  <% end %>
+  <hr>
+  <%= render "devise/shared/links" %>
+  <hr>
+</div>
