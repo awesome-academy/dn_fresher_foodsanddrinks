@@ -209,6 +209,9 @@ en:
       not_found: "Category not found."
     searchs:
       empty: "Keyword is empty"
+    cancan:
+      not_permission: "You do not have permission to access this resource."
+      not_login: "Please login before performing this action."
   mailer:
     order_infor: "MC SHOP - YOUR ORDER INFOR"
     thanks: "Thank you for shopping at MC-Shop !!!"

@@ -1,4 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
+  authorize_resource
+
   before_action :find_product, only: %i(edit update destroy)
 
   def index

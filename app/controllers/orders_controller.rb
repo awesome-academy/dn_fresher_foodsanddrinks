@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  authorize_resource
+
   before_action :load_order_from_cart, except: %i(show update)
   before_action :find_order, only: %i(show update)
   before_action :load_user, only: %i(create)

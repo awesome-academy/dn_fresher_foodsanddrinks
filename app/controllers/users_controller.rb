@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :load_user, only: [:show]
+  # before_action :authenticate_user!, :load_user, only: [:show]
+  authorize_resource
+
+  before_action :load_user, only: [:show]
 
   def show
     @orders = @user.orders.newest_time.page(params[:page])

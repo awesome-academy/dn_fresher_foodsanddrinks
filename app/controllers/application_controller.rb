@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   before_action :set_locale, :load_categories
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from CanCan::AccessDenied do |_exception|
+    if user_signed_in?
+      flash[:danger] = t "controllers.cancan.not_permission"
+      redirect_to root_path
+    else
+      flash[:danger] = t "controllers.cancan.not_login"
+      redirect_to login_path
+    end
+  end
+
   private
 
   def set_locale
