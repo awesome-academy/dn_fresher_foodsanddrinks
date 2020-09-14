@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :lockable
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   VALID_PHONE_REGEX = /\A\d[0-9]{9}\z/.freeze
   has_many :images, as: :imageable, dependent: :destroy
@@ -27,10 +33,10 @@ class User < ApplicationRecord
   validates :phone, presence: true,
             format: {with: VALID_PHONE_REGEX}
 
-  validates :password, presence: true,
-            length: {minimum: Settings.validation.user.pass_min},
-            allow_nil: true
-  has_secure_password
+  # validates :password, presence: true,
+  #           length: {minimum: Settings.validation.user.pass_min},
+  #           allow_nil: true
+  # has_secure_password
 
   before_save :downcase_email
 

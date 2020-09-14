@@ -1,0 +1,17 @@
+<% provide(:title, t("user.resend")) %>
+<% provide(:base_title, t("base.title")) %>
+
+<h2 class="text-center"><%= t "user.resend" %></h2>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+
+    <%= f.submit t("user.resend"), class: "btn btn-primary"  %>
+
+  <% end %>
+  <hr>
+  <%= render "devise/shared/links" %>
+  <hr>
+</div>

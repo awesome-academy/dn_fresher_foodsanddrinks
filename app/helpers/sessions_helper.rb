@@ -1,30 +1,32 @@
 module SessionsHelper
-  def log_in user
-    session[:user_id] = user.id
-  end
+  # def log_in user
+  #   session[:user_id] = user.id
+  # end
 
-  def current_user
-    @current_user ||= User.find_by id: session[:user_id]
-  end
+  # def current_user
+  #   @current_user ||= User.find_by id: session[:user_id]
+  # end
 
-  def logged_in?
-    current_user.present?
-  end
+  # def logged_in?
+  #   current_user.present?
+  # end
+
+  # def log_out
+  #   session.delete :user_id
+  #   session.delete :cart
+  #   @current_user = nil
+  # end
+
+  # def check_logged_in
+  #   return if logged_in?
+
+  #   store_location
+  #   flash[:danger] = t "user.login"
+  #   redirect_to login_path
+  # end
 
   def current_user? user
     user == current_user
-  end
-
-  def current_cart
-    session[:cart] ||= Hash.new
-  end
-
-  def check_logged_in
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "user.login"
-    redirect_to login_path
   end
 
   def check_admin
@@ -33,6 +35,10 @@ module SessionsHelper
 
   def user_admin?
     current_user.admin?
+  end
+
+  def current_cart
+    session[:cart] ||= Hash.new
   end
 
   def load_order_details_from_cart
@@ -47,12 +53,6 @@ module SessionsHelper
         current_price: @product.price)
       @total += @product.price * value
     end
-  end
-
-  def log_out
-    session.delete :user_id
-    session.delete :cart
-    @current_user = nil
   end
 
   def subtotal price, quantity

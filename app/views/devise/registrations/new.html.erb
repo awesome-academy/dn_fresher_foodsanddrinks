@@ -1,0 +1,38 @@
+<% provide(:title, t("user.signup")) %>
+<% provide(:base_title, t("base.title")) %>
+
+<h2 class="text-center"><%= t "user.signup" %></h2>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.label :name, t("user.name") %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+
+    <%= f.label :email, t("user.email") %><br />
+    <%= f.email_field :email, autocomplete: "email", class: "form-control"  %>
+
+    <%= f.label :phone, t("user.phone") %><br />
+    <%= f.text_field :phone, autocomplete: "phone", class: "form-control" %>
+
+    <%= f.label :address, t("user.address") %><br />
+    <%= f.text_field :address, autocomplete: "address", class: "form-control" %>
+
+    <%= f.label :password, t("user.pass") %>
+    <% if @minimum_password_length %>
+      <em>
+        (<%= @minimum_password_length %> <%= t "user.minimum" %>)
+      </em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
+
+    <%= f.label :password_confirmation, t("user.verify") %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+
+    <%= f.submit t("user.signup"), class: "btn btn-primary"  %>
+  <% end %>
+  <hr>
+  <%= render "devise/shared/links" %>
+  <hr>
+  <hr>
+</div>

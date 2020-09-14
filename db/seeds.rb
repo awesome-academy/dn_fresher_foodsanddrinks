@@ -1,24 +1,47 @@
 # Users
-User.create!(name: "Nguyen Ngoc Man",
+User.create!(
+  name: "Nguyen Ngoc Man",
   email: "yinyang1011@gmail.com",
   address: "Đông hà, Quảng Trị",
   phone: "0123456789",
   role: 1,
   password: "123456",
   password_confirmation: "123456",
-  activated_at: Time.zone.now)
+  confirmed_at: Time.zone.now)
 
-30.times do |n|
+5.times do |n|
   User.create!(
     name: Faker::FunnyName.name,
-    email: "example#{n+1}@gmail.com",
-    password:"123123",
-    password_confirmation: "123123",
+    email: "yin#{n+1}@gmail.com",
     address: Faker::Address.full_address,
     phone: Faker::Number.leading_zero_number(digits: 10),
     role: 0,
-    activated_at: Time.zone.now)
+    password:"123123",
+    password_confirmation: "123123",
+    confirmed_at: Time.zone.now)
 end
+
+# User.create!(name: "Nguyen Ngoc Man",
+#   email: "yinyang1011@gmail.com",
+#   address: "Đông hà, Quảng Trị",
+#   phone: "0123456789",
+#   role: 1,
+#   password: "123456",
+#   password_confirmation: "123456",
+#   activated_at: Time.zone.now)
+
+# 30.times do |n|
+#   User.create!(
+#     name: Faker::FunnyName.name,
+#     email: "example#{n+1}@gmail.com",
+#     password:"123123",
+#     password_confirmation: "123123",
+#     address: Faker::Address.full_address,
+#     phone: Faker::Number.leading_zero_number(digits: 10),
+#     role: 0,
+#     activated_at: Time.zone.now)
+# end
+
 # Categories
 Category.create!(name: "Foods")
 Category.create!(name: "Drinks")
@@ -60,11 +83,19 @@ User.first.images.create!(
   image_url: "user.png"
 )
 # Orders
-12.times do |n|
+6.times do |n|
+  Order.create!(
+    user_id: User.admin.pluck(:id).sample,
+    status: Order.statuses.values.sample,
+    total: 0
+    )
+end
+
+6.times do |n|
   Order.create!(
     user_id: User.limit(3).pluck(:id).sample,
     status: Order.statuses.values.sample,
-    total: 2525
+    total: 0
     )
 end
 

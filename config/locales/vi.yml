@@ -85,6 +85,26 @@ vi:
     my_orders: "Đơn hàng của tôi"
     order: "Đơn hàng"
     cancel_order: "Thao tác này không thể vãn hồi. Bạn chắc chắn muốn hủy đơn hàng này?"
+    remember: "Ghi nhớ trên máy tính này?"
+    forgot: "Quên mật khẩu?"
+    instructions: "Không nhận được hướng dẫn xác nhận?"
+    minimum: "ký tự tối thiểu"
+    resend: "Gửi lại hướng dẫn xác nhận"
+    edit: "Chỉnh sửa"
+    waiting_confirm: "Hiện đang chờ xác nhận cho:"
+    notify: "(để trống nếu bạn không muốn thay đổi nó)"
+    notify2: "(chúng tôi cần mật khẩu hiện tại của bạn để xác nhận các thay đổi của bạn)"
+    current_pass: "Mật khẩu hiện tại"
+    update: "Cập nhật"
+    cancel_acc: "Hủy tài khoản của tôi"
+    back: "Quay lại"
+    unhappy: "Không hài lòng?"
+    vefify: "Bạn chắc chứ?"
+    reset_pass: "Gửi cho tôi hướng dẫn đặt lại mật khẩu"
+    change_pass: "Đặt lại mật khẩu"
+    new_pass: "Mật khẩu mới"
+    unlock_instructions: "Không nhận được hướng dẫn mở khóa?"
+    unlock: "Gửi lại hướng dẫn mở khóa"
   cart:
     order_details_nil: "Không có đơn hàng nào để hiển thị"
     product: "Sản phẩm"
@@ -197,4 +217,16 @@ vi:
     date: "Ngày đặt hàng : %{date}"
     status: "Trạng thái đơn hàng: %{status}"
     order_notify: "MC SHOP - TRẠNG THÁI ĐƠN HÀNG MỚI"
+    confirm:
+      content: "Chào mừng %{email}! Bạn có thể xác nhận email tài khoản của mình thông qua liên kết bên dưới:"
+      link: "Xác nhận tài khoản của tôi"
+    pass:
+      hello: "Xin chào %{email}! Ai đó đã yêu cầu liên kết để thay đổi mật khẩu của bạn. Bạn có thể thực hiện việc này thông qua liên kết bên dưới."
+      link: "Thay đổi mật khẩu của tôi"
+      content: "Nếu bạn không yêu cầu, vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."
+      changed: "Xin chào %{email} ! Chúng tôi đang liên hệ với bạn để thông báo rằng mật khẩu của bạn đã được thay đổi."
+    unlock:
+      hello: "Xin chào %{email} ! Tài khoản của bạn đã bị khóa do quá nhiều lần đăng nhập không thành công. Nhấp vào liên kết bên dưới để mở khóa tài khoản của bạn:"
+      link: "Mở khóa tài khoản của tôi"
+
 

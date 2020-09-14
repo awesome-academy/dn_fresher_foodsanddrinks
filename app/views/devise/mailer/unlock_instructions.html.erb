@@ -1,0 +1,2 @@
+<p><%= t("mailer.unlock.hello", email: @resource.email) %></p>
+<p><%= link_to t("mailer.unlock.link"), unlock_url(@resource, unlock_token: @token) %></p>

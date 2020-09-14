@@ -1,0 +1,54 @@
+<% provide(:title, t("user.edit")) %>
+<% provide(:base_title, t("base.title")) %>
+
+<h2 class="text-center">
+  <%= t "user.edit" %> <%= resource_name.to_s.humanize %>
+</h2>
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.label :name, t("user.name") %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+
+    <%= f.label :email, t("user.email") %><br />
+    <%= f.email_field :email, autocomplete: "email", readonly: true, class: "form-control"  %>
+
+    <%= f.label :phone, t("user.phone") %><br />
+    <%= f.text_field :phone, autocomplete: "phone", class: "form-control" %>
+
+    <%= f.label :address, t("user.address") %><br />
+    <%= f.text_field :address, autocomplete: "address", class: "form-control" %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div><%= t "user.waiting_confirm" %> <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <%= f.label :password, t("user.pass") %>
+    <i><%= t "user.notify" %></i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> <%= t "user.minimum" %></em>
+    <% end %>
+
+    <%= f.label :password_confirmation, t("user.verify") %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+
+    <%= f.label :current_password, t("user.current_pass") %>
+    <i><%= t "user.notify2" %></i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+
+    <%= f.submit t("user.update"), class: "btn btn-primary" %>
+  <% end %>
+
+  <h3><%= t "user.cancel_acc" %></h3>
+
+  <p><%= t "user.unhappy" %>
+    <%= button_to t("user.cancel_acc"), registration_path(resource_name), data: { confirm: t("user.vefify")}, method: :delete, class: "btn btn-primary" %>
+  </p>
+
+  <%= link_to t("user.back"), :back %>
+  <hr><hr>
+</div>
+
