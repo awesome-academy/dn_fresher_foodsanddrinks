@@ -1,20 +1,36 @@
 <% provide(:title, t("admin.order.name")) %>
 <% provide(:base_title, t("base.title")) %>
 
-<table id="orders" class="table table-hover">
-  <thead>
-    <tr>
-      <th><%= t "order.user_name" %></th>
-      <th><%= t "order.status" %></th>
-      <th><%= t "order.total" %></th>
-      <th><%= t "order.date" %></th>
-      <th><%= t "admin.order.action" %></th>
-    </tr>
-  </thead>
-  <tbody id="order_row">
-    <%= render (@orders) || t("cart.order_details_nil") %>
-  </tbody>
-</table>
-<div class="row text-center" id="paginator">
-  <%= paginate @orders, theme: "twitter-bootstrap-3", remote: true %>
+<div class="text-center">
+  <%= search_form_for @search, url: admin_orders_path, class: "form-inline" do |f| %>
+
+    <%= f.search_field :user_name_cont, class: "form-control search", placeholder: t("admin.order.user_name") %>
+
+    <%= f.select :status_eq, Order.statuses.to_a.map { |w| [w[0].humanize, w[1]] }, {:include_blank => true}, class: "form-control search" %>
+
+    <%= button_tag(type: "submit", class: "btn btn-info button btn1") do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %>
 </div>
+<% if @orders.size != 0 %>
+  <table id="orders" class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t "order.user_name" %></th>
+        <th><%= t "order.status" %></th>
+        <th><%= t "order.total" %></th>
+        <th><%= t "order.date" %></th>
+        <th><%= t "admin.order.action" %></th>
+      </tr>
+    </thead>
+    <tbody id="order_row">
+      <%= render (@orders) || t("cart.order_details_nil") %>
+    </tbody>
+  </table>
+  <div class="row text-center" id="paginator">
+    <%= paginate @orders, theme: "twitter-bootstrap-3", remote: true %>
+  </div>
+<% else %>
+  <h3 class="text-center"><%= t("admin.order.not_found") %></h3>
+<% end %>

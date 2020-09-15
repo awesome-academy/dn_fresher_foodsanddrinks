@@ -156,6 +156,7 @@ vi:
     name: "Trang tìm kiếm"
     result: "Kết quả"
     not_found: "Không có kết quả nào cho %{keyword} "
+    sort_price: "Sắp xếp theo giá"
   admin:
     name: "Administrator"
     dashboard: "Bảng điều khiển"
@@ -170,6 +171,9 @@ vi:
       confirm_button: "Xác nhận"
       refuse_button: "Hủy"
       status: "Trạng thái đơn hàng : %{status}"
+      user_name: "Tên người dùng"
+      status1: "Trạng thái đơn hàng"
+      not_found: "Không tìm thấy đơn hàng nào"
     product:
       name: "Quản lý sản phẩm"
       new: "Thêm sản phẩm"
@@ -183,6 +187,9 @@ vi:
       edit_fail: "Sửa sản phẩm thất bại"
       delete_image: "Xóa ảnh thành công"
       del_img: "Bạn muốn xóa ảnh này?"
+      name1: "Tên sản phẩm"
+      quantity: "Số lượng lớn hoặc bằng"
+      not_found: "Không tìm thấy sản phẩm nào"
   controllers:
     carts:
       product_nil: "Không tìm thấy sản phẩm này."

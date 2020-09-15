@@ -4,8 +4,10 @@ class Admin::OrdersController < Admin::BaseController
   before_action :admin_load_order, only: %i(update)
 
   def index
-    @orders = Order.newest_time.page(params[:page])
-                   .per(Settings.page.per_10)
+    @search = Order.ransack(params[:q])
+    @orders = @search.result(distinct: true)
+                     .page(params[:page])
+                     .per(Settings.page.per_10)
   end
 
   def update

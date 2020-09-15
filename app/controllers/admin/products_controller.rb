@@ -4,8 +4,9 @@ class Admin::ProductsController < Admin::BaseController
   before_action :find_product, only: %i(edit update destroy)
 
   def index
-    @products = Product.alphabet_name.page(params[:page])
-                       .per(Settings.page.per_8)
+    @products = @q.result(distinct: true)
+                  .page(params[:page])
+                  .per(Settings.page.per_8)
   end
 
   def new
