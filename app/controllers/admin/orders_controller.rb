@@ -1,4 +1,6 @@
 class Admin::OrdersController < Admin::BaseController
+  authorize_resource
+
   before_action :admin_load_order, only: %i(update)
 
   def index

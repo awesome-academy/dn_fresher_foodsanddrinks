@@ -209,6 +209,9 @@ vi:
       not_found: "Không tìm thấy loại hàng này."
     searchs:
       empty: "Từ khóa trống"
+    cancan:
+      not_permission: "Bạn không có quyền truy cập tài nguyên này."
+      not_login: "Vui lòng đăng nhập trước khi thực hiện hành động này."
   mailer:
     order_infor: "MC SHOP - THÔNG TIN ĐƠN HÀNG"
     thanks: "Cám ơn vì đã mua sắm tại MC-Shop !!!"
