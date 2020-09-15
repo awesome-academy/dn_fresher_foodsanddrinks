@@ -3,6 +3,11 @@
 <div class="row">
   <h2 class="text-center"><%= t("search.result") %></h2>
   <hr>
+  <% if @products.size != 0 %>
+    <h3 class="text-right">
+      <%= sort_link(@q, :price, t("search.sort_price")) %>
+    </h3>
+  <% end %>
   <h3 class="text-center" id="products" style="color:red">
     <%= render(@products) || t("search.not_found", keyword: @keyword) %>
   </h3>

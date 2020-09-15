@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_locale, :load_categories
+  before_action :set_locale, :load_categories, :set_search
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |_exception|
@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_search
+    @q = Product.ransack(params[:q])
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

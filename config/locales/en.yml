@@ -156,6 +156,7 @@ en:
     name: "Search page"
     result: "Result"
     not_found: "No result for %{keyword}"
+    sort_price: "Sort for price"
   admin:
     name: "Administrator"
     dashboard: "Dashboard"
@@ -170,6 +171,9 @@ en:
       confirm_button: "Confirm"
       refuse_button: "Refuse"
       status: "Order status : %{status}"
+      user_name: "User name"
+      status1: "Status"
+      not_found: "Not found order"
     product:
       name: "Product manage"
       new: "New product"
@@ -183,6 +187,9 @@ en:
       edit_fail: "Edit product failed"
       delete_image: "Delete image successfully"
       del_img: "Do you want delete this image?"
+      name1: "Product name"
+      quantity: "Quantity greater than "
+      not_found: "Not found products"
   controllers:
     carts:
       product_nil: "Not found this product."

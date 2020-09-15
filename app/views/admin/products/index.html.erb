@@ -1,28 +1,46 @@
 <% provide(:title, t("admin.product.name")) %>
 <% provide(:base_title, t("base.title")) %>
 
-<div class="row text-center">
-<%= link_to new_admin_product_path, class: "btn btn-primary" do %>
-  <i class="fa fa-plus-square"></i> <%= t "admin.product.new" %>
-<% end %>
-<table id="orders" class="table table-hover">
-  <thead>
-    <tr>
-      <th class="text-center"><%= t "product.id" %></th>
-      <th class="text-center"><%= t "product.name1" %></th>
-      <th class="text-center"><%= t "product.image" %></th>
-      <th class="text-center"><%= t "product.information" %></th>
-      <th class="text-center"><%= t "product.price" %></th>
-      <th class="text-center"><%= t "product.quantity" %></th>
-      <th class="text-center"><%= t "product.category" %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="product_row">
-    <%= render (@products) || t("product.list_nil") %>
-  </tbody>
-</table>
-<div class="row" id="paginator">
+<div class="text-center">
+  <%= search_form_for @q, url: admin_products_path, class: "form-inline" do |f| %>
+    <%= f.search_field :name_cont, class: "form-control search", placeholder: t("admin.product.name1") %>
+
+    <%= f.search_field :quantity_gteq, class: "form-control search", placeholder: t("admin.product.quantity") %>
+
+    <%= button_tag(type: "submit", class: "btn btn-danger button btn1") do %>
+      <i class="fa fa-search"></i>
+    <% end %>
+  <% end %>
+</div>
+<% if @products.size != 0 %>
+<div class="row">
+  <h4 class="text-right" >
+    <%= sort_link(@q, :price, t("search.sort_price")) %>
+    <%= link_to new_admin_product_path, class: "btn btn-primary" do %>
+      <i class="fa fa-plus-square"></i> <%= t "admin.product.new" %>
+    <% end %>
+  </h4>
+  <table id="orders" class="table table-hover">
+    <thead>
+      <tr>
+        <th class="text-center"><%= t "product.id" %></th>
+        <th class="text-center"><%= t "product.name1" %></th>
+        <th class="text-center"><%= t "product.image" %></th>
+        <th class="text-center"><%= t "product.information" %></th>
+        <th class="text-center"><%= t "product.price" %></th>
+        <th class="text-center"><%= t "product.quantity" %></th>
+        <th class="text-center"><%= t "product.category" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="product_row">
+      <%= render (@products) || t("product.list_nil") %>
+    </tbody>
+  </table>
+</div>
+<div class="row text-center" id="paginator">
   <%= paginate @products, theme: "twitter-bootstrap-3", remote: true %>
 </div>
-</div>
+<% else %>
+  <h3 class="text-center"><%= t("admin.product.not_found") %></h3>
+<% end %>
