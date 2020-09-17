@@ -11,7 +11,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
   let(:product){FactoryBot.create(:product, category_id: category.id)}
   let(:invalid_params){{name: ""}}
 
-  before{log_in admin}
+  before{sign_in admin}
 
   describe "before action" do
     it {is_expected.to use_before_action :find_product}

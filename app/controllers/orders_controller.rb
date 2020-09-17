@@ -55,8 +55,10 @@ class OrdersController < ApplicationController
       @order = current_user.orders.new
       cart.each do |key, value|
         @product = Product.find_by id: key.to_i
-        next unless @product
-
+        if @product.nil?
+          flash[:danger] = t("controllers.orders.not_found_product", key: key)
+          redirect_to root_path
+        end
         @order.order_details.new(product: @product,
           quantity: value.to_i,
           current_price: @product.price)

@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     context "columns" do
       it { is_expected.to have_db_column(:name).of_type(:string) }
       it { is_expected.to have_db_column(:email).of_type(:string) }
-      it { is_expected.to have_db_column(:password_digest).of_type(:string) }
+      it { is_expected.to have_db_column(:encrypted_password).of_type(:string) }
       it { is_expected.to have_db_column(:address).of_type(:string) }
       it { is_expected.to have_db_column(:phone).of_type(:string) }
       it { is_expected.to have_db_column(:role).of_type(:integer) }
@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
 
       it {is_expected.to validate_length_of(:email).with_message(I18n.t("errors.messages.too_long"))}
 
-      it {is_expected.to validate_uniqueness_of(:email).with_message(I18n.t("errors.messages.taken"))}
+      it {is_expected.to validate_uniqueness_of(:email).case_insensitive.with_message(I18n.t("errors.messages.taken"))}
 
       it "email valid" do
         is_expected.to allow_value("valid@gmail.com").for(:email)
