@@ -207,6 +207,7 @@ en:
       cancel_success: "Cancel order successfully."
       cancel_fail: "Cancel order failed."
       status_error: "Status error"
+      not_found_product: "Not found this product with id %{key}"
     order_confirms:
       success: "Your order has been confirmed."
       fail: "Order confirmation failed"

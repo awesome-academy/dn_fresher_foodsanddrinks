@@ -13,8 +13,8 @@ FactoryBot.define do
 
     trait :admin do
       role {User.roles[:admin]}
-    end
 
-    activated_at {Time.zone.now}
+    confirmed_at {Time.now}
+    end
   end
 end

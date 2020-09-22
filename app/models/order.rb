@@ -52,14 +52,14 @@ class Order < ApplicationRecord
   def update_quantity_product_minus
     order_details.map do |od|
       @product = od.product
-      @product.update(quantity: (od.product_quantity - od.quantity))
+      @product.update!(quantity: (od.product_quantity - od.quantity))
     end
   end
 
   def update_quantity_product_plus
     order_details.map do |od|
       @product = od.product
-      @product.update(quantity: (od.product_quantity + od.quantity))
+      @product.update!(quantity: (od.product_quantity + od.quantity))
     end
   end
 

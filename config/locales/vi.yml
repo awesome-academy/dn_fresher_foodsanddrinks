@@ -207,6 +207,7 @@ vi:
       cancel_success: "Hủy đơn hàng thành công."
       cancel_fail: "Hủy đơn hàng thất bại."
       status_error: "Lỗi trạng thái đơn hàng."
+      not_found_product: "Không tìm thấy sản phẩm với id %{key}"
     order_confirms:
       success: "Đơn hàng của bạn đã được xác nhận."
       fail: "Xác nhận đơn hàng thất bại."
