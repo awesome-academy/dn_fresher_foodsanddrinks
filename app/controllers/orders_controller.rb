@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       session.delete :cart
       redirect_to order_path(@order)
     end
-  rescue ActiveRecord::RecordInvalid
+  rescue StandardError
     flash[:danger] = t "controllers.orders.save_fail"
     render :new
   end
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       flash[:danger] = t "controllers.orders.status_error"
     end
     redirect_to current_user
-  rescue ActiveRecord::RecordInvalid
+  rescue StandardError
     flash[:danger] = t "controllers.orders.cancel_fail"
     redirect_to current_user
   end
@@ -58,10 +58,11 @@ class OrdersController < ApplicationController
         if @product.nil?
           flash[:danger] = t("controllers.orders.not_found_product", key: key)
           redirect_to root_path
-        end
-        @order.order_details.new(product: @product,
+        else
+          @order.order_details.new(product: @product,
           quantity: value.to_i,
           current_price: @product.price)
+        end
       end
     end
   end
